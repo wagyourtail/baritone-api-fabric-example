@@ -16,7 +16,12 @@ repositories {
     // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
     // for more information about repositories.
+	flatDir {
+		dirs 'libs'
+	}
 }
+
+//https://stackoverflow.com/questions/23446233/compile-jar-from-url-in-gradle
 
 dependencies {
 	// To change the versions see the gradle.properties file
@@ -26,6 +31,9 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+	//put baritone in ./libs/
+	modImplementation "baritone-api-fabric:baritone-api-fabric:1.6.3"
 
 	// PSA: Some older mods, compiled on Loom 0.2.1, might have outdated Maven POMs.
 	// You may need to force-disable transitiveness on them.
